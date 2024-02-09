@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+        #emoji{
+            font-size:25em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="emoji">😎</div>
+    <script>
+        const emoji1 = document.querySelector("#emoji");
+
+         const emojis = [
+            "😉",
+            "😛",
+            "😁",
+            "😥",
+            "😤",
+            "😍",
+            "🤩",
+            "🤔",
+            "🥲", 
+            "🫡",
+             "😜", 
+             "🤤",
+             "🤑",
+             "😤",
+             "😨",
+         ]
+            // emoji1.addEventListener("mouseover",()=>{
+            //     emoji1.innerHTML = emojis[Math.floor(Math.random()*emojis.length)]
+              
+            // })
+            setInterval(() => {
+                    emoji1.innerHTML = emojis[Math.floor(Math.random()*emojis.length)]
+            }, 1000);
+           
+    </script>
+</body>
+</html>
