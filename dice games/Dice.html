@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background: #000; */
+        }
+        .box{
+            border: 1px solid black;
+            width:450px ;
+            height:auto ;
+            /* display: flex; */
+            padding: 25px 10px 35px  10px ;
+            /* align-items: center; */
+            justify-content: center;
+            border-radius: 20px;
+            /* background: gray; */
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        .alignbox{
+            text-align: center;
+            /* width:300px ; */
+            height:320px ;
+            /* border: 1px solid black; */
+            background: #fff;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            padding: 25px;
+
+        }
+        .img-box{
+            /* width:200px ; */
+            height:200px ;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-wrap: wrap;
+            margin: 15px 20px;
+        }
+        .img-box #diceImage{
+            text-align: center;
+     }
+     .alignbox h1{
+        background: lime;
+        color: white;
+        border-radius: 20px;
+     }
+     .content h2{
+        color: red;
+     }
+     .alignbox input{
+        width:300px ;
+        padding: 5px 0;
+        font-size: 5rem;
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        outline: none;
+     }
+     .button button{
+        padding : 10px;
+        font-size:20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: brown;
+        border-radius:20px;
+        border:none;
+        background: lime;
+
+     }
+    </style>
+</head>
+<body>
+        <div class="wrapper">
+            <div class="box">
+                <div class="alignbox">
+                    <h1>Dice</h1>
+                    <div class="content">
+                        <h2> Games</h2>
+                    </div>
+                    <input type="number" id="numofDice" value="1" min="1">
+                      <div class="button">
+                        <button onclick="rollDice()">Roll Dice</button>
+                    </div>
+                      <div id="diceResult">
+                      </div>
+                </div>
+                <div class="img-box">
+                    <!-- <img src="" id="diceImage" alt=""> -->
+                    <div id="diceImage"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function rollDice(){
+                const numofDice = document.getElementById("numofDice").value;
+                const diceResult = document.getElementById("diceResult");
+                const diceImage = document.getElementById("diceImage");
+               let values = [];
+               let images = [];
+               for (let i =0; i<numofDice ;i++){
+                 let value = Math.floor(Math.random()*6)+1;
+                        values.push(value);
+                        images.push(`<img src="dice/${value}.png" width="100px" height="100px"alt="Dice ${value}"/>`);
+               }
+               console.log(values)
+               diceResult.textContent = `dice:${values.join(', ')}`;
+               diceImage.innerHTML = images.join('  ');
+            }
+        </script>
+</body>
+</html>
